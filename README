@@ -1,0 +1,48 @@
+
+
+Configuration:
+
+The configuration requires that both the galaxy and refine plugins know which 
+server the other is running on (and what the name is to an external visitor)
+The host names for the servers are currently hardcoded in the source.
+
+To configure the refine plugin, edit the file: galaxy/module/index.vt
+
+Change the line:
+    <form id="tool_form" name="tool_form" action="http://localhost:8080/tool_runner/index" ...
+
+To point to your Galaxy server (as seen by an external visitor)
+
+To configure the Galaxy tool, edit the file galaxy_refine/refine_edit.xml
+
+Change the line:
+      <param name="REDIRECT_URL" type="hidden" value="http://localhost:3333/extension/galaxy/"/>
+
+To point to your Refine server.
+
+
+=======
+Install
+=======
+
+Galaxy Install:
+
+Copy galaxy_refine directory to galaxy tools directory and 
+add entry for 'galaxy_refine/refine_edit.xml' in the tools_conf.xml file.
+
+Refine Install:
+
+Copy galaxy into OpenRefine 'extensions' directory.
+
+In extensions/build.xml, in build target, add line for:
+
+    <ant dir="galaxy/" target="build" />
+
+Run ant build:   
+
+    ant
+
+
+Launch Refine to server to the external world.
+
+     ./refine -i 0.0.0.0

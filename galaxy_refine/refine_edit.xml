@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<tool name="Open Refine" id="refine_export">
+    <description> Editing</description>
+    <redirect_url_params>NAME=${input1.name} INFO=${input1.info}</redirect_url_params>
+    <inputs>
+        <param format="tabular" name="input1" type="data" label="Send this dataset to OpenRefine"/>
+        <param name="REDIRECT_URL" type="hidden" value="http://localhost:3333/extension/galaxy/"/>
+        <param name="DATA_URL" type="baseurl" value="/datasets" />
+        <param name="GALAXY_URL" type="baseurl" value="/tool_runner?tool_id=refine_import" />
+    </inputs>
+    <outputs/>
+    <help>
+
+.. class:: warningmark
+
+After clicking the **Execute** button, you will be redirected to the OpenRefine website.
+
+
+
+    </help>
+</tool>
+
+

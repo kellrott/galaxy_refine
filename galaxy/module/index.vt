@@ -1,0 +1,21 @@
+#*
+ * Access this page at the URL /extension/galaxy/
+ *#
+<html>
+  <head>
+    <title>OpenRefine Galaxy</title>
+  </head>
+  <body>
+    <div>
+    <form id="tool_form" name="tool_form" action="http://localhost:8080/tool_runner/index" enctype="multipart/form-data" target="galaxy_main" method="post">
+	    <input type="hidden" name="refresh" value="refresh"/>
+        <input type="hidden" name="tool_id" value="upload1"/>
+        <input type="hidden" name="file_type" value="tabular"/>
+        <input type="hidden" name="files_0|url_paste" value="http://localhost:3333/command/galaxy/export?project=$project_id"/>
+		<input type="submit" name="runtool_btn" value="Save To Galaxy"/>
+    </div>    
+    <div>
+    <iframe src="/project?project=$project_id" frameborder="0" style="position: absolute; margin: 0; border: 0 none; height: 100%; width: 100%;"></iframe>
+    </div>
+  </body>
+</html>
